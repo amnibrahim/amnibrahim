@@ -1,0 +1,271 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	transition: 0.5s;
+	color: Deeppink;
+}
+
+body{
+	background-color: rgb(23,23,23);
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	display: none;
+    width: 0 !important;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+/*-----------------------------------*/
+
+div#wavyWrap{
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	width: 400px;
+	height: 40px;
+	z-index: 9999;
+	background-color: rgb(23,23,23);
+}
+
+div#wavyWrap div{
+	background-color: rgb(23,23,23);
+	width: 50%;
+	height: 100%;
+	position: absolute;
+
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+div#wavyWrap div#wavyMove1{
+	animation-name: slideRight;
+	/*border: 1px solid white;?*/
+}
+
+@keyframes slideRight{
+	0% {transform: translateX(0);}
+	33% {transform: translateX(100%);}
+	66% {transform: translateX(100%);}
+	100% {transform: translateX(100%);}
+}
+
+div#wavyWrap div#wavyMove2{
+	animation-name: slideRightLate;
+	/*border: 1px solid red*/
+	
+}
+
+@keyframes slideRightLate{
+	0% {transform: translateX(-100%);}
+	33% {transform: translateX(-100%);}
+	66% {transform: translateX(0);}
+	100% {transform: translateX(0);}
+}
+
+div#wavyWrap img{
+	width: 50%;
+	height: 100%;
+}
+
+/*-----------------------------------*/
+
+div#textBox{
+	position: fixed;
+	top: 35%;
+	left: 250px;
+	width: 500px;
+	z-index: 9999;
+}
+
+div#textBox p#title{
+	font-family: serif;
+	font-size: 36px;
+	color: white;
+}
+
+div#textBox p#par{
+	font-family: serif;
+	font-size: 18px;
+	padding-left: 50px;
+    padding-top: 20px;
+    letter-spacing: 0.5px;
+	color: white;
+}
+
+/*-----------------------------------*/
+
+div#gallery{
+	position: absolute;
+	width: 100%;
+	/*background-color: green;*/
+	z-index: 1;
+	padding-top: 100px;
+}
+
+div#picPanel{
+	width: 100%;
+	margin-bottom: 30px;
+	/*background-color: red;*/
+}
+
+div.picWrap{
+	padding-top: 150px;
+	padding-bottom: 50px;
+	position: relative;
+	transform: translateY(0%);
+}
+
+div.picWrap img{
+	width: 200px;
+
+}
+
+div.picWrap:nth-child(odd){
+	text-align: right;
+	padding-right: 150px;
+}
+
+div.picWrap:nth-child(even){
+	text-align: center;
+	padding-left: 150px;
+}
+/*
+div.picWrap.pic5 img, div.picWrap.pic5 img, div.picWrap.pic4 img{ 
+	width: 200px;
+}*/
+/*
+div.picWrap.pic5 img{
+	animation-name: rotatingBomb;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes rotatingBomb{
+	0% {transform: rotate(0deg);}
+	25% {transform: rotate(90deg);}
+	50% {transform: rotate(180);}
+	75% {transform: rotate(270);}
+	100% {transform: rotate(360deg);}
+}
+*/
+
+div.picWrap.pic3, div.picWrap.pic5, div.picWrap.pic4{
+	padding-top: 200px;
+	padding-bottom: 200px;
+}
+
+div#picPanel p{
+	text-align: center;
+	font-family: serif;
+	font-size: 18px;
+	color: white;
+	letter-spacing: 0.5px;
+}
+/*-----------------------------------*/
+
+@media screen and (max-width: 768px) {
+/*
+	div#wavyWrap{
+		width: 400px;
+	}*/
+
+	div#textBox{
+		position: fixed;
+		top: 30%;
+		left: 100px;
+		width: 500px;
+		z-index: 9999;
+		pointer-events: none;
+	}
+
+	div#gallery{
+		width: 100%;
+		padding-top: 100px;
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+
+	div.picWrap:nth-child(odd){
+		padding-right: 50px;
+	}
+
+	div.picWrap:nth-child(even){
+		padding-left: 50px;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	div#wavyWrap{
+		top: 20px;
+		left: 20px;
+		width: 200px;
+		height: 20px;
+	}
+
+	div#textBox{
+		top: 130px;
+		width: 90%;
+		left: 0;
+		padding: 20px;
+		line-height: 2;
+	}
+
+	div#textBox p#par{
+		font-size: 16px;
+		padding-left: 20px;
+	    padding-top: 20px;
+	    letter-spacing: 2px;		
+	}
+
+	div#gallery{
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	div.picWrap img{
+		width: 150px;
+	}
+
+	div#picPanel{
+		margin-bottom: 20px;
+		/*background-color: red;*/
+	}	
+
+	div.picWrap:nth-child(odd){
+		padding-right: 0px;
+	}
+
+	div.picWrap:nth-child(even){
+		padding-left: 0px;
+	}
+
+	div#picPanel p{
+		font-size: 16px;
+		line-height: 2;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	div#textBox{
+		top: 100px;
+		width: 90%;
+	}
+}
